@@ -1,0 +1,341 @@
+Entity,Skills
+SKILLS,Big Data
+SKILLS,Recommender systems
+SKILLS,Data visualization
+SKILLS,RPA
+SKILLS,NumPy
+SKILLS,Horovod
+SKILLS,Ruby
+SKILLS,NLTK
+SKILLS,JavaScript
+SKILLS,Neo4j
+SKILLS,Visual SLAM
+SKILLS,ELT
+SKILLS,Economics
+SKILLS,DB2
+SKILLS,MLOps
+SKILLS,GCP
+SKILLS,Open Source
+SKILLS,SDL
+SKILLS,T-SQL
+SKILLS,Linux
+SKILLS,StyleGAN
+SKILLS,3D Reconstruction
+SKILLS,ANN
+SKILLS,ELK
+SKILLS,SAS
+SKILLS,Anyword
+SKILLS,E-commerce
+SKILLS,Dataproc
+SKILLS,Drug discovery
+SKILLS,Circuit Design
+SKILLS,Blockchain
+SKILLS,Econometrics
+SKILLS,RNN
+SKILLS,MXNet
+SKILLS,Redash
+SKILLS,Model inference
+SKILLS,PyTorch
+SKILLS,HiveSQL
+SKILLS,DynamoDB
+SKILLS,Content creation
+SKILLS,Elasticsearch
+SKILLS,Grafana
+SKILLS,DataRobot
+SKILLS,SLAM
+SKILLS,ONNX
+SKILLS,Midjourney
+SKILLS,Django
+SKILLS,Pictory
+SKILLS,Pentaho
+SKILLS,A/B testing
+SKILLS,ChatGPT
+SKILLS,Airflow
+SKILLS,Power BI
+SKILLS,CAD
+SKILLS,Data pipelines
+SKILLS,GPT-2
+SKILLS,MLFlow
+SKILLS,Data Warehousing
+SKILLS,Kubernetes
+SKILLS,Excel
+SKILLS,Unstructured data
+SKILLS,OLAP
+SKILLS,Driver’s license
+SKILLS,REST API
+SKILLS,Pandas
+SKILLS,EDA
+SKILLS,Streaming
+SKILLS,Healthcare technology
+SKILLS,RDBMS
+SKILLS,Linear algebra
+SKILLS,Research
+SKILLS,SparkML
+SKILLS,LookML
+SKILLS,Data Studio
+SKILLS,Data warehouse
+SKILLS,Git
+SKILLS,KNIME
+SKILLS,QuickSight
+SKILLS,Python
+SKILLS,UX
+SKILLS,Spark
+SKILLS,statsmodels
+SKILLS,NLP
+SKILLS,Computer Science
+SKILLS,Dataflow
+SKILLS,Scikit-learn
+SKILLS,Autoregressive models
+SKILLS,Prototyping
+SKILLS,spaCy
+SKILLS,ASR
+SKILLS,Google Cloud
+SKILLS,TOGAF
+SKILLS,Theano
+SKILLS,DDL
+SKILLS,Anaconda
+SKILLS,OpenCV
+SKILLS,Deep Learning
+SKILLS,Seaborn
+SKILLS,JMLR
+SKILLS,Conversational AI
+SKILLS,GitHub
+SKILLS,TypeScript
+SKILLS,Sports industry
+SKILLS,Lidar
+SKILLS,CockroachDB
+SKILLS,Semantic Analysis
+SKILLS,BigQuery
+SKILLS,Azkaban
+SKILLS,Computer Vision
+SKILLS,Firehose
+SKILLS,Julia
+SKILLS,XLNet
+SKILLS,PySpark
+SKILLS,Stable Diffusion
+SKILLS,Jupyter
+SKILLS,Credit risk
+SKILLS,R
+SKILLS,Oozie
+SKILLS,DevOps
+SKILLS,Crypto
+SKILLS,DataOps
+SKILLS,Genetics
+SKILLS,Prompt writing
+SKILLS,Matlab
+SKILLS,CX
+SKILLS,GPT
+SKILLS,Matillion
+SKILLS,Consulting
+SKILLS,MVPs
+SKILLS,FinTech
+SKILLS,Flask
+SKILLS,Chemistry
+SKILLS,Redshift
+SKILLS,Scrum
+SKILLS,Monte Carlo
+SKILLS,Weka
+SKILLS,Testing
+SKILLS,Elixir
+SKILLS,Nonprofit
+SKILLS,Logstash
+SKILLS,Pipelines
+SKILLS,D3
+SKILLS,OKR
+SKILLS,Clojure
+SKILLS,Informatica
+SKILLS,NLG
+SKILLS,Business Intelligence
+SKILLS,fastai
+SKILLS,Robotics
+SKILLS,Jira
+SKILLS,Banking
+SKILLS,Plotly
+SKILLS,Ansible
+SKILLS,Lambda
+SKILLS,Data strategy
+SKILLS,OOP
+SKILLS,Marketmuse
+SKILLS,MongoDB
+SKILLS,ICLR
+SKILLS,SQL
+SKILLS,AI strategy
+SKILLS,AI content
+SKILLS,Microservices
+SKILLS,DALL-E
+SKILLS,Trifacta
+SKILLS,Wordtune
+SKILLS,Node.js
+SKILLS,PhD
+SKILLS,Trading Strategies
+SKILLS,OpenAI
+SKILLS,React
+SKILLS,SciPy
+SKILLS,TensorFlow
+SKILLS,STEM
+SKILLS,CUDA
+SKILLS,CI/CD
+SKILLS,AI video
+SKILLS,CSV
+SKILLS,Databricks
+SKILLS,Data quality
+SKILLS,Qlik
+SKILLS,Markov Chain
+SKILLS,Clinical NLP
+SKILLS,Predictive Maintenance
+SKILLS,HDFS
+SKILLS,Avro
+SKILLS,MS SQL
+SKILLS,Metabase
+SKILLS,NeurIPS
+SKILLS,Machine intelligence
+SKILLS,RabbitMQ
+SKILLS,Tableau
+SKILLS,Angular
+SKILLS,Machine Learning
+SKILLS,Oracle
+SKILLS,ETL
+SKILLS,FiveTran
+SKILLS,Model design
+SKILLS,Shell scripting
+SKILLS,Athena
+SKILLS,Business Analytics
+SKILLS,Talend
+SKILLS,Haskell
+SKILLS,Predictive modeling
+SKILLS,Statistics
+SKILLS,Distributed Systems
+SKILLS,RapidMiner
+SKILLS,JSON
+SKILLS,Travel
+SKILLS,PostgreSQL
+SKILLS,Kibana
+SKILLS,Postdoc
+SKILLS,MySQL
+SKILLS,Weights & Biases
+SKILLS,Pulsar
+SKILLS,Matplotlib
+SKILLS,Docker
+SKILLS,Snowflake
+SKILLS,AI art
+SKILLS,ML models
+SKILLS,SSIS
+SKILLS,Kanban
+SKILLS,Quantum algorithms
+SKILLS,Causal inference
+SKILLS,Splunk
+SKILLS,Looker
+SKILLS,ITIL
+SKILLS,PHP
+SKILLS,R&D
+SKILLS,Radar
+SKILLS,ES6
+SKILLS,HiveQL
+SKILLS,Drones
+SKILLS,Diffusion models
+SKILLS,Engineering
+SKILLS,Maven
+SKILLS,System architecture
+SKILLS,Spotfire
+SKILLS,EMNLP
+SKILLS,TDD
+SKILLS,Flink
+SKILLS,Consulting firm
+SKILLS,Classification
+SKILLS,3D graphics
+SKILLS,Dagster
+SKILLS,AI governance
+SKILLS,ISO 27001
+SKILLS,Data management
+SKILLS,Cluster analysis
+SKILLS,Fraud risk
+SKILLS,NoSQL
+SKILLS,Physics
+SKILLS,SharePoint
+SKILLS,GraphQL
+SKILLS,Golang
+SKILLS,MariaDB
+SKILLS,OCR
+SKILLS,ggplot2
+SKILLS,Periscope
+SKILLS,Topic modeling
+SKILLS,Lua
+SKILLS,Probability theory
+SKILLS,APIs
+SKILLS,Data governance
+SKILLS,HBase
+SKILLS,ICML
+SKILLS,Statistical modeling
+SKILLS,Superset
+SKILLS,C++
+SKILLS,Cassandra
+SKILLS,Vue
+SKILLS,TensorRT
+SKILLS,GPU
+SKILLS,Autonomous Driving
+SKILLS,Minitab
+SKILLS,Data Mining
+SKILLS,AWS
+SKILLS,Generative modeling
+SKILLS,Industrial
+SKILLS,Speech synthesis
+SKILLS,Clustering
+SKILLS,Terraform
+SKILLS,Azure
+SKILLS,SDLC
+SKILLS,Rust
+SKILLS,API Development
+SKILLS,BERT
+SKILLS,XGBoost
+SKILLS,ECS
+SKILLS,Data Analytics
+SKILLS,Survey data
+SKILLS,Copywriting
+SKILLS,Model training
+SKILLS,Bigtable
+SKILLS,EC2
+SKILLS,Biology
+SKILLS,Bitbucket
+SKILLS,HPC
+SKILLS,MPP
+SKILLS,Perl
+SKILLS,XML
+SKILLS,Airtable
+SKILLS,Finance
+SKILLS,GitLab
+SKILLS,Teradata
+SKILLS,SageMaker
+SKILLS,Scala
+SKILLS,RDF
+SKILLS,Helm
+SKILLS,VR
+SKILLS,Hadoop
+SKILLS,Map Reduce
+SKILLS,Parquet
+SKILLS,KPIs
+SKILLS,Cybernetics
+SKILLS,Security
+SKILLS,Agile
+SKILLS,ML infrastructure
+SKILLS,.NET
+SKILLS,Feature engineering
+SKILLS,Market research
+SKILLS,Mathematics
+SKILLS,Nvidia Jetson
+SKILLS,QlikView
+SKILLS,HuggingFace
+SKILLS,Kinesis
+SKILLS,Caffe
+SKILLS,Data analysis
+SKILLS,UX Research
+SKILLS,Human Machine Interaction
+SKILLS,Bayesian
+SKILLS,Kafka
+SKILLS,GPT-3
+SKILLS,Transformers
+SKILLS,Teaching
+SKILLS,Chatbots
+SKILLS,Keras
+SKILLS,Accounting concepts
+SKILLS,Amplitude
+SKILLS,Model deployment
