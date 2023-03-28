@@ -3,7 +3,7 @@ import pandas as pd
 import json
 import os
 from llama_index import SimpleDirectoryReader, GPTSimpleVectorIndex, LLMPredictor, PromptHelper
-from langchain import ChatOpenAI
+from langchain.llms import OpenAI
 from IPython.display import Markdown, display
 
 filename_list = []
