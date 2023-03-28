@@ -1,0 +1,7 @@
+pandas
+numpy
+openai
+tensorflow
+scikit-learn
+llama_index
+langchain

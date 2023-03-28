@@ -3,7 +3,7 @@ import pandas as pd
 import json
 import os
 from llama_index import SimpleDirectoryReader, GPTSimpleVectorIndex, LLMPredictor, PromptHelper
-from langchain import OpenAI
+from langchain import ChatOpenAI
 from IPython.display import Markdown, display
 
 filename_list = []
@@ -34,7 +34,9 @@ def construct_index(directory_path):
     # set maximum chunk overlap
     max_chunk_overlap = 20
     # set chunk size limit
+    
     chunk_size_limit = 600
+
 
     # define LLM (ChatGPT gpt-3.5-turbo)
     llm_predictor = LLMPredictor(llm=OpenAI(temperature=0, model_name="gpt-3.5-turbo", max_tokens=num_outputs))
@@ -62,10 +64,12 @@ def ask_me_anything(question):
     print(f"Bot says: {response.response}")
     
 # Set OpenAI key
-os.environ["OPENAI_API_KEY"] = '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'
+os.environ["OPENAI_API_KEY"] = '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'
 
 construct_index(r'D:\Python\Resume_NLP_Project\Resume-Strength-NLP-Project\textdata')
 
-question = input('Enter a question')
+question = input('Enter a question (Type Exit to Exit from the chatbot): ')
 
-ask_me_anything(question)
+while question!='Exit':
+    ask_me_anything(question)
+    question = input('Enter a question (Type Exit to Exit from the chatbot): ')
