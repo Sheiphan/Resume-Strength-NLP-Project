@@ -5,4 +5,7 @@ tensorflow
 scikit-learn
 llama_index
 langchain
+pdfminer.six
+simpletransformers
+
 -e .

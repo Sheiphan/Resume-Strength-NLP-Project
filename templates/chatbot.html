@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Question Form</title>
+  </head>
+  <body>
+    <h1>Ask a question:</h1>
+    <form method="POST" action="{{ url_for('answer') }}">
+      <label for="question">Question:</label>
+      <input type="text" id="question" name="question"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+
+    {% if answer %}
+    <hr>
+    <h2>Answer:</h2>
+    <p>{{ answer }}</p>
+    {% endif %}
+  </body>
+</html>

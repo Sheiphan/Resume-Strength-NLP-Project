@@ -2,9 +2,13 @@ import openai
 import pandas as pd
 import json
 import os
+import PyPDF2
 from llama_index import SimpleDirectoryReader, GPTSimpleVectorIndex, LLMPredictor, PromptHelper
 from langchain.llms import OpenAI
 from IPython.display import Markdown, display
+
+# Set OpenAI key
+os.environ["OPENAI_API_KEY"] = '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'
 
 filename_list = []
 # # Define the directory path
@@ -63,13 +67,11 @@ def ask_me_anything(question):
     print(f"You asked: {question}")
     print(f"Bot says: {response.response}")
     
-# Set OpenAI key
-os.environ["OPENAI_API_KEY"] = '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'
 
-construct_index(r'D:\Python\Resume_NLP_Project\Resume-Strength-NLP-Project\textdata')
 
-question = input('Enter a question (Type Exit to Exit from the chatbot): ')
 
-while question!='Exit':
-    ask_me_anything(question)
-    question = input('Enter a question (Type Exit to Exit from the chatbot): ')
+# question = input('Enter a question (Type Exit to Exit from the chatbot): ')
+
+# while question!='Exit':
+#     ask_me_anything(question)
+#     question = input('Enter a question (Type Exit to Exit from the chatbot): ')
