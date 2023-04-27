@@ -11,5 +11,12 @@
         <input type="file" name="pdf_file">
         <button type="submit">Upload</button>
     </form>
+    
+    {% if keyphrases %}
+    <!-- <hr> -->
+    <h2>Skills Extracted from the Resume:</h2>
+    <p>{{ keyphrases }}</p>
+    {% endif %}
+
 </body>
 </html>

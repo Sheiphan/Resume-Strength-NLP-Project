@@ -9,11 +9,13 @@ from llama_index import (
     LLMPredictor,
     PromptHelper,
 )
+from llama_index import ServiceContext
+    
 from langchain.chat_models import ChatOpenAI
 from IPython.display import Markdown, display
 
 # Set OpenAI key
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "YOUR_API_KEY"
 
 filename_list = []
 # # Define the directory path
@@ -42,7 +44,7 @@ def construct_index(directory_path):
     # set maximum input size
     max_input_size = 4096
     # set number of output tokens
-    num_outputs = 256
+    num_outputs = 500
     # set maximum chunk overlap
     max_chunk_overlap = 20
     # set chunk size limit
@@ -52,7 +54,7 @@ def construct_index(directory_path):
     # define LLM (ChatGPT gpt-3.5-turbo)
     llm_predictor = LLMPredictor(
         llm=ChatOpenAI(
-            temperature=0, model_name="gpt-3.5-turbo", max_tokens=num_outputs
+            temperature=0.5, model_name="gpt-3.5-turbo", max_tokens=num_outputs
         )
     )
     prompt_helper = PromptHelper(
@@ -64,9 +66,15 @@ def construct_index(directory_path):
 
     documents = SimpleDirectoryReader(directory_path).load_data()
 
-    index = GPTSimpleVectorIndex(
-        documents, llm_predictor=llm_predictor, prompt_helper=prompt_helper
+    service_context = ServiceContext.from_defaults(
+        llm_predictor=llm_predictor, prompt_helper=prompt_helper
     )
+
+    index = GPTSimpleVectorIndex.from_documents(documents,service_context=service_context)
+
+    # index = GPTSimpleVectorIndex(
+    #     documents, llm_predictor=llm_predictor, prompt_helper=prompt_helper
+    # )
 
     index.save_to_disk("index.json")
 
@@ -84,8 +92,8 @@ def ask_me_anything(question):
     return response.response
 
 
-question = input("Enter a question (Type Exit to Exit from the chatbot): ")
+# question = input("Enter a question (Type Exit to Exit from the chatbot): ")
 
-while question != "Exit":
-    print(ask_me_anything(question))
-    question = input("Enter a question (Type Exit to Exit from the chatbot): ")
+# while question != "Exit":
+#     print(ask_me_anything(question))
+#     question = input("Enter a question (Type Exit to Exit from the chatbot): ")

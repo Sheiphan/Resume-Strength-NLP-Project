@@ -7,5 +7,9 @@ llama_index
 langchain
 pdfminer.six
 simpletransformers
+flask
+PyPDF2
+torch
+matplotlib
 
--e .
+# -e .

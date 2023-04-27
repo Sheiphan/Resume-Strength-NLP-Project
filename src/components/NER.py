@@ -1,6 +1,6 @@
 from pdfminer.high_level import extract_pages, extract_text
 import numpy as np
-from transformers import (TokenClassificationPipeline, AutoModelForTokenClassification, AutoTokenizer,)
+from transformers import (TokenClassificationPipeline, AutoModelForTokenClassification, AutoTokenizer)
 from transformers.pipelines import AggregationStrategy
 
 
@@ -8,6 +8,28 @@ def extract_pdf(file_path):
     text = extract_text(file_path)
     text_replace = text.replace('\n',' ')
     return text_replace
+
+
+
+# from transformers import AutoTokenizer, AutoModelForTokenClassification
+
+# tokenizer = AutoTokenizer.from_pretrained("Jean-Baptiste/roberta-large-ner-english")
+# model = AutoModelForTokenClassification.from_pretrained("Jean-Baptiste/roberta-large-ner-english")
+
+
+##### Process text sample (from wikipedia)
+
+from transformers import pipeline
+
+def ner(text_replace,model,tokenizer):
+    nlp = pipeline('ner', model=model, tokenizer=tokenizer, aggregation_strategy="simple")
+
+    return nlp(text_replace)
+
+
+
+
+
 
 # Define keyphrase extraction pipeline
 class KeyphraseExtractionPipeline(TokenClassificationPipeline):
@@ -19,9 +41,9 @@ class KeyphraseExtractionPipeline(TokenClassificationPipeline):
             **kwargs
         )
 
-    def postprocess(self, model_outputs):
+    def postprocess(self, all_outputs):
         results = super().postprocess(
-            model_outputs=model_outputs,
+            all_outputs=all_outputs,
             aggregation_strategy=AggregationStrategy.FIRST,
         )
         return np.unique([result.get("word").strip() for result in results])
