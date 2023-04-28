@@ -1,10 +1,15 @@
 from flask import Flask, request, render_template
 import numpy as np
-# import re
-from src.components.NER import extract_pdf, ner ,KeyphraseExtractionPipeline
-from src.components.chatbot import ask_me_anything, construct_index
+import pandas as pd
 from pdfminer.high_level import extract_pages, extract_text
 from transformers import AutoTokenizer, AutoModelForTokenClassification
+# import re
+
+from src.components.NER import extract_pdf, ner ,KeyphraseExtractionPipeline
+from src.components.chatbot import ask_me_anything, construct_index
+from src.components.resume import DataManipulation
+from src.components.resume import neural_network
+
 
 import os
 
@@ -75,9 +80,27 @@ def upload():
             keyphrases = np.concatenate((keyphrases_1,skills))
             print(keyphrases)
             keyphrases = list(keyphrases)
-            return render_template("upload.html", keyphrases=keyphrases)
+            
+            
+            
+            skills_df = pd.read_csv("jobs&skills.csv")
+            roles = skills_df['job_role'].unique()
+            
+            job = DataManipulation
+            all_data  = job.job_data(roles, skills_df)
+            print("ALL DATA")
+            print(all_data)
+            
+            job.jobs_skills_final_csv(roles, skills_df)
+            
+            jobs_skills_final = pd.read_csv('jobs_skills_final.csv')
+            neural_network(jobs_skills_final)
+            
+            return render_template("upload.html", keyphrases=keyphrases, all_data=all_data)
 
-            # return 'PDF file uploaded and saved successfully!'
+            
+            
+            # return 'PDF file uploaded and saved successfull   y!'
         else:
             return "No PDF file uploaded"
 

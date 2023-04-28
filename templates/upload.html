@@ -18,5 +18,13 @@
     <p>{{ keyphrases }}</p>
     {% endif %}
 
+    {% for i in all_data %}
+    <h3>The {{i}} role has following statistics:</h3>
+    <ol>
+        <li>The most frequently required skills = {{all_data[i]['most_important_skill']}}</li>
+        <li>Percentage of jobs requiring {{all_data[i]['most_important_skill']}} skill = {{all_data[i]['percent_of_MIS']}}</li>
+        <li>Top skills required for {{i}} role = {{all_data[i]['skills_most']}}</li>
+    </ol>  
+    {% endfor %}
 </body>
 </html>
