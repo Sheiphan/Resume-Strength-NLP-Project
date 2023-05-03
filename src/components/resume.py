@@ -1,6 +1,7 @@
 import pandas as pd
 import json
 import os
+import sys
 from typing import List
 import numpy as np
 
@@ -9,6 +10,8 @@ from sklearn.preprocessing import LabelEncoder
 from keras.models import Sequential, save_model
 from keras.layers import Dense, Dropout
 from keras.callbacks import EarlyStopping
+from tensorflow.keras.models import load_model
+
 
 from src.exception import CustomException
 from src.logger import logging
@@ -18,14 +21,14 @@ from src.logger import logging
 
 # code to create just headings of df from skills of different job roles
 
-# skills = set()
+skills = set()
 
-# for filename in os.listdir('dataset_1'):
-#     prev_skills_lenght = len(skills)
-#     with open(os.path.join('dataset_1', filename)) as f:
-#         data = json.load(f)
-#         for skill_set in data['Tags'].values():
-#             skills.update(skill_set)
+for filename in os.listdir('dataset_1'):
+    prev_skills_lenght = len(skills)
+    with open(os.path.join('dataset_1', filename)) as f:
+        data = json.load(f)
+        for skill_set in data['Tags'].values():
+            skills.update(skill_set)
     
 #     print(len(skills)-prev_skills_lenght,"skills extracted from:",filename)
 # print(len(skills),"total skills extracted")
@@ -132,7 +135,7 @@ class Neural_Net(DataManipulation):
     """
     Neural network class to prepare data and train a model for job classification.
     """
-    def __init__(self, jobs_skills_final: pd.DataFrame, roles: List[str], skills_df: pd.DataFrame):
+    def __init__(self, jobs_skills_final: pd.DataFrame, roles: List[str], skills_df: pd.DataFrame, keyphrases):
         """
         Initialize a Neural_Net object with jobs_skills_final, roles and skills_df dataframes.
 
@@ -147,6 +150,7 @@ class Neural_Net(DataManipulation):
         """
         super().__init__(roles, skills_df)
         self.jobs_skills_final = jobs_skills_final
+        self.keyphrases = keyphrases
         self.le = LabelEncoder()
         
     def _prepare_data(self):
@@ -154,6 +158,8 @@ class Neural_Net(DataManipulation):
         Prepare the data for training and testing the model.
         """
         self.jobs_skills_final['job_role'] = self.le.fit_transform(self.jobs_skills_final['job_role'])
+        print("Training")
+        print(self.jobs_skills_final['job_role'])
         X = self.jobs_skills_final.iloc[:, :-1].values
         y = self.jobs_skills_final.iloc[:, -1].values
         self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -195,3 +201,36 @@ class Neural_Net(DataManipulation):
         save_model(self.model, 'model.h5')
         
         logging.info('Train the neural network model and save it to disk.')
+        
+    def predict(self):
+        """
+        Predict the Top three Job roles
+        """
+        skills_list = list(skills)
+        lowercase_skill = []
+        for i in range(len(skills)):
+            lowercase_skill.append(skills_list[i].lower())
+        
+        for i in range(len(self.keyphrases)):
+            self.keyphrases[i] = self.keyphrases[i].lower().strip()
+            
+        for skill_set in self.keyphrases:
+            row = {skill: int(skill in skill_set) for skill in lowercase_skill}
+        row = list(row.values())
+        print(sum(row))
+        
+        try:
+        # Load the saved model from disk
+            model = load_model('model.h5')
+            X_input = pd.DataFrame(row)
+            # print(X_input)
+            y_pred = model.predict(X_input.T)
+            print(y_pred)
+            sorted_indices = np.argsort(y_pred.flatten())
+            # print(sorted_indices)
+            # Get the predicted job role label
+            predicted_label = self.le.inverse_transform(sorted_indices)
+            return predicted_label[-1:-4:-1]
+        
+        except Exception as e:
+            CustomException(e,sys)
