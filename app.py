@@ -87,7 +87,7 @@ def upload():
             Neural_Object.train()
             predicted_label = Neural_Object.predict()
             
-            return render_template("upload.html", keyphrases=keyphrases, all_data=all_data, predicted_label = predicted_label)
+            return render_template("upload.html", keyphrases=keyphrases, all_data=all_data, predicted_label = list(predicted_label))
 
             
             # return 'PDF file uploaded and saved successfully!'
