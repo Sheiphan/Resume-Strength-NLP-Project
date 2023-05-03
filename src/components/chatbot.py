@@ -14,7 +14,7 @@ from llama_index import ServiceContext
 from langchain.chat_models import ChatOpenAI
 
 # Set OpenAI key
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "YOUR_API_KEY"
 
 filename_list = []
 # # Define the directory path
