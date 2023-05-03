@@ -26,12 +26,6 @@ def hello_world():
     return render_template("index.html")
 
 
-# @app.route('/upload', methods=['POST'])
-# def upload():
-#     file = request.files['resume']
-#     file.save('uploaded_file.pdf')
-#     return 'File uploaded successfully'
-
 
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
@@ -72,7 +66,6 @@ def upload():
                     
             skills = np.array(skills)
             keyphrases = np.concatenate((keyphrases_1,skills))
-            print(keyphrases)
             keyphrases = list(keyphrases)
             
             logging.info('Keyphrases Token been generated')
@@ -89,10 +82,12 @@ def upload():
             logging.info('Job Statistics Related to Roles Generated')
             
             jobs_skills_final = pd.read_csv('jobs_skills_final.csv')
-            Neural_Object = Neural_Net(jobs_skills_final, roles, skills_df)
-            Neural_Object.train()
+            Neural_Object = Neural_Net(jobs_skills_final, roles, skills_df, keyphrases)
             
-            return render_template("upload.html", keyphrases=keyphrases, all_data=all_data)
+            Neural_Object.train()
+            predicted_label = Neural_Object.predict()
+            
+            return render_template("upload.html", keyphrases=keyphrases, all_data=all_data, predicted_label = predicted_label)
 
             
             # return 'PDF file uploaded and saved successfully!'
@@ -107,9 +102,9 @@ def answer():
 
     else:
         if 'index.json' in os.listdir():
-            logging.info('index.json file exists in the directory')
+            logging.info('index.json File exists in the directory')
         else:
-            logging.info('index.json file does not exist in the directory')
+            logging.info('index.json File does not exist in the directory')
             construct_index(r"textdata")
 
         question = request.form["question"]
@@ -118,10 +113,7 @@ def answer():
             answer = ask_me_anything(question)
             logging.info('Got answer')
             return render_template("chatbot.html", answer=answer)
-            question = input("Enter a question (Type Exit to Exit from the chatbot): ")
-        
-        # Do something to get the answer based on the question
-        # answer = "The answer to your question is..."
+            # question = input("Enter a question (Type Exit to Exit from the chatbot): ")
 
 
 if __name__ == "__main__":

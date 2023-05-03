@@ -11,13 +11,21 @@
         <input type="file" name="pdf_file">
         <button type="submit">Upload</button>
     </form>
-    
+    <br><br>
+
+    <a href="/answer"><button>Go to Chat Bot Page</button></a>
+    <a href="/"><button>Go to Home Page</button></a>
+
     {% if keyphrases %}
     <!-- <hr> -->
     <h2>Skills Extracted from the Resume:</h2>
     <p>{{ keyphrases }}</p>
     {% endif %}
 
+    {% if predicted_label.any() %}
+    <h2>Top Three Jobs that you can apply for: {{predicted_label}}</h2>
+    {% endif %}
+    <br>
     {% for i in all_data %}
     <h3>The {{i}} role has following statistics:</h3>
     <ol>
@@ -26,5 +34,6 @@
         <li>Top skills required for {{i}} role = {{all_data[i]['skills_most']}}</li>
     </ol>  
     {% endfor %}
+    
 </body>
 </html>
