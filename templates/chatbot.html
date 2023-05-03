@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -21,4 +21,216 @@
     <p>{{ answer }}</p>
     {% endif %}
   </body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Question Form</title>
+    <style>
+      body {
+        background-color: #F5F5F5;
+        font-family: Arial, sans-serif;
+      }
+      h1 {
+        color: #4CAF50;
+        text-align: center;
+      }
+      form {
+        margin: 0 auto;
+        width: 50%;
+      }
+      label {
+        display: block;
+        font-size: 18px;
+        margin-top: 20px;
+      }
+      input[type=text] {
+        padding: 10px;
+        font-size: 18px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 100%;
+      }
+      input[type=submit] {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 18px;
+        margin-top: 20px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      input[type=submit]:hover {
+        background-color: #3E8E41;
+      }
+      a {
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px;
+        font-size: 18px;
+        color: white;
+        background-color: #4CAF50;
+        border-radius: 5px;
+      }
+      a:hover {
+        background-color: #3E8E41;
+      }
+      hr {
+        border: none;
+        border-top: 1px solid #ccc;
+        margin-top: 50px;
+      }
+      h2 {
+        color: #4CAF50;
+        margin-top: 50px;
+      }
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="/upload">Go to Upload Page</a>
+    <a href="/">Go to Home Page</a>
+    <h1>Ask a question:</h1>
+    <form method="POST" action="{{ url_for('answer') }}">
+      <label for="question">Question:</label>
+      <input type="text" id="question" name="question"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+    <br><br>
+    
+
+    {% if answer %}
+    <hr>
+    <h2>Answer:</h2>
+    <p>{{ answer }}</p>
+    {% endif %}
+  </body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Question Form</title>
+    <style>
+      body {
+        background-color: #F5F5F5;
+        font-family: Arial, sans-serif;
+      }
+      h1 {
+        color: #4CAF50;
+        text-align: center;
+      }
+      form {
+        margin: 0 auto;
+        width: 50%;
+      }
+      label {
+        display: block;
+        font-size: 18px;
+        margin-top: 20px;
+      }
+      input[type=text] {
+        padding: 10px;
+        font-size: 18px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 100%;
+      }
+      input[type=submit] {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 18px;
+        margin-top: 20px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      input[type=submit]:hover {
+        background-color: #3E8E41;
+      }
+      a {
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px;
+        font-size: 18px;
+        color: white;
+        background-color: #4CAF50;
+        border-radius: 5px;
+      }
+      a:hover {
+        background-color: #3E8E41;
+      }
+      hr {
+        border: none;
+        border-top: 1px solid #ccc;
+        margin-top: 50px;
+      }
+      h2 {
+        color: #4CAF50;
+        margin-top: 50px;
+      }
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+      li {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="/upload">Go to Upload Page</a>
+    <a href="/">Go to Home Page</a>
+    <h1>Ask a question:</h1>
+    <form method="POST" action="{{ url_for('answer') }}">
+      <label for="question">Question:</label>
+      <input type="text" id="question" name="question"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+    <br><br>
+
+    {% if answer %}
+    <hr>
+    <h2>Answer:</h2>
+    <ul>
+      {% for sentence in answer.split('.') %}
+        {% if sentence %}
+          <li>{{ sentence.strip() }}.</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    {% endif %}
+    
+    {% if numbered_list %}
+    
+      {% for item in numbered_list.split() %}
+        {% if item %}
+          <li>{{ item }}</li>
+        {% endif %}
+      {% endfor %}
+    
+    {% endif %}
+  </body>
 </html>
+
